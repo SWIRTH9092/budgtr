@@ -1,0 +1,27 @@
+{
+  "name": "budgtr",
+  "version": "1.0.0",
+  "description": "#### Purpose With this app you will be able to: - see a list of your income and expenses - show you one income/expedniture item - create a new income/expenditure item",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SWIRTH9092/budgtr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SWIRTH9092/budgtr/issues"
+  },
+  "homepage": "https://github.com/SWIRTH9092/budgtr#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  }
+}
