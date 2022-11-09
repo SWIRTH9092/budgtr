@@ -4,6 +4,8 @@ const app = express();
 const morgan = require("morgan")  // import Morgan (logging middleware)
 const PORT = process.env.POR || 3000; //(in case of env file missing)
 
+// app.use(express.static(__dirname + '/public')); // this is how we add css to 
+app.use(express.static(__dirname + '/public'))
 
 // route get controller file
 
