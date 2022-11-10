@@ -1,4 +1,3 @@
-
 // Data array for budget
 module.exports = [
     {
