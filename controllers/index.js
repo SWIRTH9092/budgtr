@@ -8,8 +8,6 @@ const Budget = require('../models/budget');
 //(instead of app=express)
 const router = express.Router(); 
 
-
-
 // INDEX ROUTE - GET to / - Returns all Budget Items
 router.get('/', (req,res) => {
     // res.render(template, data)
