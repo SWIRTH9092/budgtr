@@ -10,7 +10,7 @@ With this app you will be able to:
 - HTML
 - REST
 - MVC
-- EJS templating 
+- EJS templating using helper file for javascript
 - ENV
 - gitIgnore
 

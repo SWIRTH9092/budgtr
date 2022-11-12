@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="/app.js" defer></script>
+    <script
+    src="https://code.jquery.com/jquery-3.6.1.js"
+    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>New Budget Item</title>
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/skeleton.css">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container"> 
+        <h1>New Budget Item</h1>
+            <form action="/budgets/" method="POST">
+                Date: <input type="text" name="date"><br>
+                Name: <input type="text" name="name"><br>
+                From: <input type="text" name="from"><br>
+                Amount: <input type="number" name="amount"><br>
+                Tags: <input type="text" name="tags"><br>
+                <input type="submit" value="create budget item">
+            </form>
+    </div>
+</body>
+</html>
