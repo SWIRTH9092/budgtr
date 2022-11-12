@@ -10,7 +10,8 @@ With this app you will be able to:
 - HTML
 - REST
 - MVC
-- EJS templating using helper file for javascript
+- EJS templating using helper file for javascript and partials file for HTML header
+- Static Files
 - ENV
 - gitIgnore
 

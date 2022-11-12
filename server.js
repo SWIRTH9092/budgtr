@@ -19,9 +19,6 @@ const app = express();
 //register middleware with the app - Middleware are just functions that handle the request and response object before the routes do
 app.use("/budgets", express.urlencoded({extended: true})) 
 app.use(morgan("tiny"))  // logging middleware
-// app.use(methodOverride("_method")) // swap the method if the url has a ?_method=XXX query
-app.use(express.static(__dirname + '/public')); // it's going serve files from a folder called "public" under /static example public/styles.css => /static/styles.css
-
 
 // route get controller file
 const budgets = require('./controllers/index');

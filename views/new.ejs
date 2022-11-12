@@ -1,19 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="/app.js" defer></script>
-    <script
-    src="https://code.jquery.com/jquery-3.6.1.js"
-    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-    crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>New Budget Item</title>
-    <link rel="stylesheet" href="/normalize.css">
-    <link rel="stylesheet" href="/skeleton.css">
-    <link rel="stylesheet" href="/styles.css">
+    <head>
+        <%- include("./partials/head.ejs", {title: "New Budget Item"}) %>
+    </head>
 </head>
 <body>
     <div class="container"> 
@@ -23,7 +13,7 @@
                 Name: <input type="text" name="name"><br>
                 From: <input type="text" name="from"><br>
                 Amount: <input type="number" name="amount"><br>
-                Tags: <input type="text" name="tags"><br>
+                Tags: <input type="text" name="tags" size="50"><br>
                 <input type="submit" value="CREATE">
             </form>
     </div>

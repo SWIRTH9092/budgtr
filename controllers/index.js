@@ -18,7 +18,7 @@ router.use("/budgets", express.urlencoded({extended: true}))
 //Method over-ride
 router.use(methodOverride("_method")) // swap the method if the url has a ?_method=XXX query
 
-router.use(express.static(__dirname + '../public')); // it's going serve files from a folder called "public" under /static example public/styles.css => /static/styles.css
+router.use("/static", express.static("public")) // it's going serve files from a folder called "public" under /static example public/styles.css => /static/styles.css
 
 // HOME ROUTE - Just redirects you to budgets index for now
 router.get("/", (req, res) => res.redirect("/budgets"))
@@ -47,7 +47,11 @@ router.post("/budgets", (req, res)=> {
 
     // convert amount from string to number
     let workAmount = 0;
-    workAmount = parseInt(req.body.amount)
+    if (!req.body.amount) {
+        workAmount = 0
+     }  else{
+        workAmount = parseInt(req.body.amount)
+     }
     req.body.amount = workAmount
 
     // convert tags to an array
@@ -82,7 +86,12 @@ router.put("/budgets/:index", (req, res) => {
  
  // convert amount from string to number
  let workAmount = 0;
- workAmount = parseInt(req.body.amount)
+ if (!req.body.amount) {
+    workAmount = 0
+ }  else{
+    workAmount = parseInt(req.body.amount)
+ }
+
  req.body.amount = workAmount
 
  // convert tags to an array
