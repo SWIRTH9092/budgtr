@@ -10,19 +10,24 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <div class="container"></div>
-    <h1>Budgtr</h1>
-    <a href="/budgets/new"><button type="button">New</button></a>
-    <table>
-        <% allBudgetItems.forEach((v, index) =>{ %> 
-            <tr>
-                <td class="first-child"><%=v.date%></td>
-                <td class="first-child">
-                    <a href="/budgets/<%=index%>"><%=v.name%></a>
-                </td>
-                <td class="last-child"><%=v.amount%></td>
-            </tr>
-        <% }) %> 
-    </table>
+    <div class="container">
+        <h1>Budgtr</h1>
+        <a href="/budgets/new"><button type="button">New</button></a>
+        <table>
+            <% allBudgetItems.forEach((v, index) =>{ %> 
+                <tr>
+                    <td class="first-child"><%=v.date%></td>
+                    <td class="first-child">
+                        <a href="/budgets/<%=index%>"><%=v.name%></a>
+                    </td>
+                    <td class="last-child"><%=v.amount%></td>
+                    <td>
+                        <form action="/budgets/<%= index %>?_method=DELETE" method="POST">
+                            <input type="submit" value="Delete">
+                    </td>
+                </tr>
+            <% }) %> 
+        </table>
+    </div>
 </body>
 </html>

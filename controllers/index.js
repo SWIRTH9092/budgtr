@@ -80,7 +80,6 @@ router.get("/budgets/:index/edit", (req, res) => {
 
 router.put("/budgets/:index", (req, res) => {
  
-    console.log("req.body before", req.body)
  // convert amount from string to number
  let workAmount = 0;
  workAmount = parseInt(req.body.amount)
