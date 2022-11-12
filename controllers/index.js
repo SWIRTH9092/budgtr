@@ -34,7 +34,7 @@ router.get('/budgets', (req,res) => {
     );
 });
 
-// NEW ROUTE - GET to / - displays form to get new budget Item
+// New Route - Get to /budgets/new - render a page with a form to create a new thing
 router.get('/budgets/new', (req,res) => {
     res.render("new.ejs", {
         helpers  
@@ -42,7 +42,7 @@ router.get('/budgets/new', (req,res) => {
 });  
 
 
-// INDEX ROUTE - change get to post
+//new route - post to /budgets - receive data from the data from the form and create a new budget item then redirect the user back to index
 router.post("/budgets", (req, res)=> {
 
     // convert amount from string to number
@@ -64,6 +64,54 @@ router.post("/budgets", (req, res)=> {
     // redirect back to index page
     res.redirect("/budgets")
 });
+
+
+// EDIT route = GET to /budgets/:index/edit - render a form to edit the budget item
+router.get("/budgets/:index/edit", (req, res) => {
+    // render edit.ejs with the existing budget data
+    res.render("edit.ejs", {
+        budgetItem: Budget[req.params.index],
+        index: req.params.index,
+        helpers
+    })
+ })
+
+// update route = PUT to /budgets/:index - update the Budget with info from a form
+
+router.put("/budgets/:index", (req, res) => {
+ 
+    console.log("req.body before", req.body)
+ // convert amount from string to number
+ let workAmount = 0;
+ workAmount = parseInt(req.body.amount)
+ req.body.amount = workAmount
+
+ // convert tags to an array
+ let workTags = [];
+ workTags = req.body.tags.split(",")
+
+ //removed leading and trailing spaces from array element
+ workTags = workTags.map (function (el){
+     return el.trim();
+ });
+ req.body.tags = workTags
+    
+ // updating Budget
+    Budget[req.params.index] = req.body
+
+// redirect user back to index
+    res.redirect("/budgets")
+  })
+ 
+  
+
+// DESTROY Route - DELETE to /budgets/:index - deletes the specified
+router.delete("/budgets/:index", (req, res) => {
+    //splice the item out of the array
+    Budget.splice(req.params.index, 1)
+    // redirect user back to index
+    res.redirect("/Budgets")  
+  })
 
 //SHOW ROUTE - GET to /budgets - Returns a single budget
 router.get("/budgets/:index", (req, res) => {
